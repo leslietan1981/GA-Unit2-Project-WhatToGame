@@ -1,15 +1,42 @@
 import React from "react";
 import css from "./App.module.css";
+import PlatformTag from "./PlatformTag";
+import { getParentObj } from "./platformTagUtil";
 
 const GameCard = (props) => {
   const { name, background_image, released, platforms } = props.gameDetails;
+  const tagIds = [];
+
   return (
     <div className={`${css["card"]} ${css["game-tile"]}`}>
       <img src={background_image} />
       <div className={css["title"]}>{name}</div>
       <ul>
-        <li className={css["released"]}>{`Released date: ${released}`}</li>
-        <li className={css["platforms"]}>{platforms && platforms.map((item, idx) => item.platform.name).join(", ")}</li>
+        <li
+          className={css["released"]}
+        >{`${new Date(released) > new Date() ? "Available date:" : "Released date:"} ${released}`}</li>
+        <li className={css["platforms"]}>
+          <div>
+            {platforms && platforms.length > 0
+              ? platforms.map((item, idx) => {
+                  const parentTagObj = getParentObj(item.platform.slug);
+                  if (tagIds.includes(parentTagObj.id)) return;
+                  tagIds.push(parentTagObj.id);
+
+                  return (
+                    parentTagObj && (
+                      <PlatformTag
+                        key={idx}
+                        slug={parentTagObj.slug}
+                        name={parentTagObj.name}
+                        onClick={() => props.handleTagClick(parentTagObj)}
+                      />
+                    )
+                  );
+                })
+              : "No platforms listed"}
+          </div>
+        </li>
       </ul>
     </div>
   );
