@@ -1,4 +1,4 @@
-import { devParentPlatforms } from "../services/devParentPlatforms";
+import { devParentPlatforms } from "../services/dev_datasets/devParentPlatforms";
 
 export const getParentObj = (childSlug) => {
   const includedParentPlatforms = ["pc", "playstation", "xbox", "ios", "android", "mac", "nintendo"];
