@@ -26,7 +26,7 @@ function App() {
     latestGames.request(controller, getParentPlatformParameter(filterTagsLG));
 
     return () => controller.abort();
-  }, []);
+  }, [filterTagsLG]);
 
   const addToWishlist = (gameObj) => {
     if (wishlist.data.some((wishlistObj) => wishlistObj.game_json.id === gameObj.id)) return;
