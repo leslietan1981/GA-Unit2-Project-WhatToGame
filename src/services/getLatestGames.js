@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { devLatestGames } from "./devLatestGames";
+import { devLatestGames } from "./dev_datasets/devLatestGames";
 
 const useLatestGames = () => {
   const [data, setData] = useState([]);
@@ -8,9 +8,9 @@ const useLatestGames = () => {
     return [data, () => setData(devLatestGames)];
   }
 
-  const api = import.meta.env.VITE_SERVER;
+  const api = import.meta.env.VITE_SERVER_RAWG;
   const endpoint = "/games";
-  const keyParam = import.meta.env.VITE_API_KEY;
+  const keyParam = import.meta.env.VITE_API_KEY_RAWG;
   const dateParam = getDateParameter();
   const orderParam = "&ordering=-released";
   const pageSizeParam = "&page_size=20";
