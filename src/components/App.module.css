@@ -113,3 +113,17 @@
   flex-wrap: wrap;
   gap: 0.25rem;
 }
+
+.wishlist-tile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.wishlist-tile > img {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+}
