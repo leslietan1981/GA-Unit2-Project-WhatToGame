@@ -1,7 +1,7 @@
 import React from "react";
-import css from "./App.module.css";
+import css from "../styles/App.module.css";
 import PlatformTag from "./PlatformTag";
-import { getParentObj } from "./platformTagUtil";
+import { getParentObj } from "../utils/platformTagUtil";
 
 const GameCard = (props) => {
   const { name, background_image, released, platforms } = props.gameDetails;

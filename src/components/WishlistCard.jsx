@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./App.module.css";
+import css from "../styles/App.module.css";
 
 const WishlistCard = (props) => {
   const { name, background_image, released, platforms } = props.gameDetails;

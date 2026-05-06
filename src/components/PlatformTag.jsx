@@ -1,6 +1,6 @@
 import React from "react";
-import css from "./App.module.css";
-import { getTagClassName } from "./platformTagUtil";
+import css from "../styles/App.module.css";
+import { getTagClassName } from "../utils/platformTagUtil";
 
 const PlatformTag = (props) => {
   return (
