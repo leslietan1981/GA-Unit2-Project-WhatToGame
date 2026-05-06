@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
 const useAddGame = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [successCount, setSuccessCount] = useState(0);
 
   const api = import.meta.env.VITE_SERVER_AIR;
   const endpoint = "/Wishlist_Table";
   const headers = { "Content-Type": "application/json", Authorization: `Bearer ${import.meta.env.VITE_TOKEN_AIR}` };
 
   const request = async (gameObj) => {
-    setIsSuccess(false);
-
     try {
       const response = await fetch(api + endpoint, {
         method: "POST",
@@ -22,7 +20,7 @@ const useAddGame = () => {
       });
 
       if (response.ok) {
-        setIsSuccess(true);
+        setSuccessCount((prevState) => prevState + 1);
       } else {
         throw new Error("fetch error");
       }
@@ -31,7 +29,7 @@ const useAddGame = () => {
     }
   };
 
-  return { isSuccess, request };
+  return { successCount, request };
 };
 
 export { useAddGame };

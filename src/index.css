@@ -10,7 +10,7 @@ html {
 
 body {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: black;
 }
 
 .centered {
@@ -19,4 +19,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.wrapper {
+  background-image: url("assets/images/OPMonster_background.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  margin: 0 calc((100% - 85rem) / 2);
+  justify-content: center;
+}
+
+.wrapper-row {
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 85rem;
+  padding: 1rem;
 }

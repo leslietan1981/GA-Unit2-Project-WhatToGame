@@ -1,57 +1,31 @@
 import React, { use, useEffect, useState } from "react";
-import css from "./App.module.css";
-import { devLatestGames } from "../services/dev_datasets/devLatestGames";
+import css from "../styles/App.module.css";
 import GameCard from "./GameCard";
 import TagFilter from "./TagFilter";
-import { useLatestGames } from "../services/getLatestGames";
-import { getParentPlatformParameter } from "./platformTagUtil";
-import { useAddGame } from "../services/addToWishlist";
-import DataContext from "../context/data-context";
 
-const LatestListing = () => {
-  const dataCtx = use(DataContext);
-  const [filterTags, setFilterTags] = useState([]);
-  const [latestGames, setLatestGames] = useLatestGames();
-  const addGameToWishlist = useAddGame();
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setLatestGames(controller, getParentPlatformParameter(filterTags));
-
-    return () => controller.abort();
-  }, [filterTags]);
-
-  useEffect(() => {
-    if (addGameToWishlist.isSuccess) dataCtx.setWishlistIsUpdated(true);
-  }, [addGameToWishlist.isSuccess]);
-
+const LatestListing = (props) => {
   const handleCardTagClick = (tagObj) => {
-    if (filterTags.includes(tagObj)) return;
-    setFilterTags((prevState) => [...prevState, tagObj]);
+    if (props.filterTags.includes(tagObj)) return;
+    props.setFilterTags((prevState) => [...prevState, tagObj]);
   };
 
   const handleFilterTagClick = (tagObj) => {
-    if (!filterTags.includes(tagObj)) return;
-    setFilterTags((prevState) => [...prevState.toSpliced(prevState.indexOf(tagObj), 1)]);
-  };
-
-  const handleAddToWishlist = (gameObj) => {
-    if (dataCtx.wishlist.some((wishlistObj) => wishlistObj.game_json.id === gameObj.id)) return;
-    addGameToWishlist.request(gameObj);
+    if (!props.filterTags.includes(tagObj)) return;
+    props.setFilterTags((prevState) => [...prevState.toSpliced(prevState.indexOf(tagObj), 1)]);
   };
 
   return (
     <div>
       <div>Latest Games</div>
-      <TagFilter tags={filterTags} handleTagClick={handleFilterTagClick} />
+      <TagFilter tags={props.filterTags} handleTagClick={handleFilterTagClick} />
       <div className={css["grid-listing"]}>
-        {latestGames.results &&
-          latestGames.results.map((gameDetails, idx) => (
+        {props.data.results &&
+          props.data.results.map((gameDetails, idx) => (
             <GameCard
               key={idx}
               gameDetails={gameDetails}
               handleTagClick={handleCardTagClick}
-              handleAddToWishlist={handleAddToWishlist}
+              handleAddToWishlist={props.handleAddToWishlist}
             />
           ))}
       </div>

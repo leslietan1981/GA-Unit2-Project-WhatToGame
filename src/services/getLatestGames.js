@@ -39,7 +39,7 @@ const useLatestGames = () => {
       }
     }
   };
-  return [data, request];
+  return { data, request };
 };
 
 export { useLatestGames };
