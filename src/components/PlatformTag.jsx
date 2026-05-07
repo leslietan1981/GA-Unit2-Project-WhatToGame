@@ -4,7 +4,10 @@ import { getTagClassName } from "../utils/platformTagUtil";
 
 const PlatformTag = (props) => {
   return (
-    <div className={`${css["platform-tag"]} ${css[getTagClassName(props.slug)]}`} onClick={props.onClick || undefined}>
+    <div
+      className={`${css["platform-tag"]} ${css[getTagClassName(props.slug, props.isSelected)]}`}
+      onClick={props.onClick || undefined}
+    >
       {props.name}
     </div>
   );

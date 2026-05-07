@@ -1,3 +1,21 @@
+.section {
+  margin-top: 1rem;
+}
+
+.section-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
+.section-title {
+  color: #f0f0f0;
+  font-weight: 700;
+}
+
 .grid-listing {
   display: grid;
   grid-auto-flow: column;
@@ -74,38 +92,64 @@
   user-select: none;
 }
 
+.tag-all {
+  background-color: rgba(240, 240, 240, 1);
+  border: 1px solid rgba(240, 240, 240, 0);
+  color: #111111;
+  font-weight: 900;
+}
+.tag-all-off {
+  background-color: rgba(240, 240, 240, 0.2);
+  border: 1px solid rgba(240, 240, 240, 1);
+  color: #f0f0f0;
+  font-weight: 900;
+}
+
 .tag-pc {
-  background-color: rgb(214, 172, 2);
+  background-color: rgba(214, 172, 2, 1);
+  border: 1px solid rgba(214, 172, 2, 0);
   color: #111111;
 }
 
-.tag-ps {
-  background-color: rgb(0, 112, 209);
+.tag-pc-off {
+  background-color: rgba(214, 172, 2, 0.2);
+  border: 1px solid rgba(214, 172, 2, 1);
+  color: #f0f0f0;
+}
+
+.tag-playstation {
+  background-color: rgba(0, 112, 209, 1);
+  border: 1px solid rgba(0, 112, 209, 0);
+  color: #f0f0f0;
+}
+
+.tag-playstation-off {
+  background-color: rgba(0, 112, 209, 0.2);
+  border: 1px solid rgba(0, 112, 209, 1);
   color: #f0f0f0;
 }
 
 .tag-xbox {
-  background-color: rgb(16, 124, 16);
+  background-color: rgba(16, 124, 16, 1);
+  border: 1px solid rgba(16, 124, 16, 0);
   color: #f0f0f0;
 }
 
-.tag-ios {
-  background-color: rgb(0, 122, 255);
+.tag-xbox-off {
+  background-color: rgba(16, 124, 16, 0.2);
+  border: 1px solid rgba(16, 124, 16, 1);
   color: #f0f0f0;
-}
-
-.tag-android {
-  background-color: rgb(61, 220, 132);
-  color: #111111;
-}
-
-.tag-mac {
-  background-color: rgb(166, 177, 183);
-  color: #111111;
 }
 
 .tag-nintendo {
-  background-color: rgb(230, 0, 18);
+  background-color: rgba(230, 0, 18, 1);
+  border: 1px solid rgba(230, 0, 18, 0);
+  color: #f0f0f0;
+}
+
+.tag-nintendo-off {
+  background-color: rgba(230, 0, 18, 0.2);
+  border: 1px solid rgba(230, 0, 18, 1);
   color: #f0f0f0;
 }
 
@@ -114,6 +158,7 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.25rem;
+  align-items: center;
 }
 
 .wishlist-tile {

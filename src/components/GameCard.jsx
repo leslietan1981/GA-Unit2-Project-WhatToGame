@@ -29,6 +29,7 @@ const GameCard = (props) => {
                         key={idx}
                         slug={parentTagObj.slug}
                         name={parentTagObj.name}
+                        isSelected={true}
                         onClick={() => props.handleTagClick(parentTagObj)}
                       />
                     )

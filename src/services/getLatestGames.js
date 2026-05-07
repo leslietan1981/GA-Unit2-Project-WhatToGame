@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { devLatestGames } from "./dev_datasets/devLatestGames";
+import { getIncludedParentPlatformParameter } from "../utils/platformTagUtil";
 
 const useLatestGames = () => {
   const [data, setData] = useState([]);
@@ -14,7 +15,6 @@ const useLatestGames = () => {
   const dateParam = getDateParameter();
   const orderParam = "&ordering=-released";
   const pageSizeParam = "&page_size=20";
-  const parentPlatformParam = "&parent_platforms=1,2,3,4,5,7,8";
 
   function getDateParameter() {
     const today = new Date();
@@ -24,7 +24,7 @@ const useLatestGames = () => {
   }
 
   const request = async (controller, filters = "") => {
-    const parameters = [dateParam, orderParam, pageSizeParam, filters || parentPlatformParam].join("");
+    const parameters = [dateParam, orderParam, pageSizeParam, filters || getIncludedParentPlatformParameter()].join("");
     try {
       const res = await fetch(api + endpoint + keyParam + parameters, { signal: controller.signal });
       if (!res.ok) {

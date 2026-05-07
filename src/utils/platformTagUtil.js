@@ -1,9 +1,7 @@
-import { devParentPlatforms } from "../services/dev_datasets/devParentPlatforms";
+import { includedParentPlatforms, parentPlatformsData } from "../services/cached_datasets/parentPlatformsCached";
 
 export const getParentObj = (childSlug) => {
-  const includedParentPlatforms = ["pc", "playstation", "xbox", "ios", "android", "mac", "nintendo"];
-
-  for (const parentPlatform of devParentPlatforms.results) {
+  for (const parentPlatform of parentPlatformsData.results) {
     if (!includedParentPlatforms.includes(parentPlatform.slug)) continue;
 
     for (const childPlatform of parentPlatform.platforms) {
@@ -13,26 +11,21 @@ export const getParentObj = (childSlug) => {
   return "";
 };
 
-export const getTagClassName = (slug) => {
-  switch (slug) {
-    case "pc":
-      return "tag-pc";
-    case "playstation":
-      return "tag-ps";
-    case "xbox":
-      return "tag-xbox";
-    case "ios":
-      return "tag-ios";
-    case "android":
-      return "tag-android";
-    case "mac":
-      return "tag-mac";
-    case "nintendo":
-      return "tag-nintendo";
+export const getTagClassName = (slug, isOn = false) => {
+  if (slug === "all" || includedParentPlatforms.includes(slug)) {
+    console.log(`tag-${slug}${isOn ? "" : "-off"}`);
+    return `tag-${slug}${isOn ? "" : "-off"}`;
   }
-  return false;
 };
 
 export const getParentPlatformParameter = (filters) => {
   return filters && filters.length > 0 ? `&parent_platforms=${filters.map((tag) => tag.id).join(",")}` : "";
+};
+
+export const getIncludedParentPlatformParameter = () => {
+  const dataObjs = includedParentPlatforms.map((parentPlatformSlug) =>
+    parentPlatformsData.results.find((dataObj) => dataObj.slug === parentPlatformSlug),
+  );
+
+  return getParentPlatformParameter(dataObjs);
 };
