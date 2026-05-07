@@ -5,7 +5,7 @@
 
 .section-header {
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   margin-bottom: 0.5rem;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -13,8 +13,10 @@
 }
 
 .section-title {
-  color: #f0f0f0;
+  color: #f5f7ff;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .grid-listing {
@@ -29,10 +31,46 @@
 }
 
 .card {
-  border: 1px solid #00000022;
-  background-color: rgb(220, 215, 154);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(160deg, rgba(17, 19, 32, 0.9), rgba(10, 12, 22, 0.8)),
+    radial-gradient(circle at top left, rgba(145, 70, 255, 0.16), transparent 36%),
+    radial-gradient(circle at bottom right, rgba(0, 229, 255, 0.1), transparent 32%);
   border-radius: 1rem;
   overflow: hidden;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    transparent 35%,
+    transparent 60%,
+    rgba(145, 70, 255, 0.09)
+  );
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(145, 70, 255, 0.28);
+  box-shadow:
+    0 24px 52px rgba(0, 0, 0, 0.48),
+    0 0 0 1px rgba(145, 70, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .game-tile {
@@ -49,6 +87,8 @@
   height: 150px;
   object-fit: cover;
   object-position: center;
+  filter: saturate(1.08) contrast(1.04) brightness(0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .game-tile ul {
@@ -64,11 +104,14 @@
   padding-bottom: 0.25rem;
   margin: 0 0.5rem;
   font-weight: 600;
+  color: #f4f6ff;
+  letter-spacing: 0.02em;
 }
 
 .game-tile .released {
   font-size: 0.5rem;
   margin-bottom: 0.25rem;
+  color: rgba(236, 239, 255, 0.78);
 }
 
 .game-tile .platforms {
@@ -85,71 +128,84 @@
 
 .platform-tag {
   border-radius: 20rem;
-  background-color: gray;
-  padding: 0.1rem 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 0.12rem 0.55rem;
   font-size: 0.5rem;
   user-select: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+}
+
+.platform-tag:hover {
+  transform: translateY(-1px);
 }
 
 .tag-all {
-  background-color: rgba(240, 240, 240, 1);
-  border: 1px solid rgba(240, 240, 240, 0);
-  color: #111111;
+  background: linear-gradient(135deg, rgba(145, 70, 255, 0.95), rgba(0, 229, 255, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f7f8ff;
   font-weight: 900;
 }
 .tag-all-off {
-  background-color: rgba(240, 240, 240, 0.2);
-  border: 1px solid rgba(240, 240, 240, 1);
-  color: #f0f0f0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(244, 246, 255, 0.86);
   font-weight: 900;
 }
 
 .tag-pc {
-  background-color: rgba(214, 172, 2, 1);
-  border: 1px solid rgba(214, 172, 2, 0);
-  color: #111111;
+  background: linear-gradient(135deg, rgba(255, 184, 61, 0.92), rgba(255, 128, 0, 0.82));
+  border: 1px solid rgba(255, 184, 61, 0.08);
+  color: #151521;
 }
 
 .tag-pc-off {
-  background-color: rgba(214, 172, 2, 0.2);
-  border: 1px solid rgba(214, 172, 2, 1);
-  color: #f0f0f0;
+  background: rgba(255, 184, 61, 0.14);
+  border: 1px solid rgba(255, 184, 61, 0.38);
+  color: rgba(244, 246, 255, 0.9);
 }
 
 .tag-playstation {
-  background-color: rgba(0, 112, 209, 1);
-  border: 1px solid rgba(0, 112, 209, 0);
-  color: #f0f0f0;
+  background: linear-gradient(135deg, rgba(0, 112, 209, 0.95), rgba(33, 149, 255, 0.8));
+  border: 1px solid rgba(0, 112, 209, 0.08);
+  color: #f7f8ff;
 }
 
 .tag-playstation-off {
-  background-color: rgba(0, 112, 209, 0.2);
-  border: 1px solid rgba(0, 112, 209, 1);
-  color: #f0f0f0;
+  background: rgba(0, 112, 209, 0.14);
+  border: 1px solid rgba(0, 112, 209, 0.38);
+  color: rgba(244, 246, 255, 0.9);
 }
 
 .tag-xbox {
-  background-color: rgba(16, 124, 16, 1);
-  border: 1px solid rgba(16, 124, 16, 0);
-  color: #f0f0f0;
+  background: linear-gradient(135deg, rgba(16, 124, 16, 0.95), rgba(54, 183, 75, 0.78));
+  border: 1px solid rgba(16, 124, 16, 0.08);
+  color: #f7f8ff;
 }
 
 .tag-xbox-off {
-  background-color: rgba(16, 124, 16, 0.2);
-  border: 1px solid rgba(16, 124, 16, 1);
-  color: #f0f0f0;
+  background: rgba(16, 124, 16, 0.14);
+  border: 1px solid rgba(16, 124, 16, 0.38);
+  color: rgba(244, 246, 255, 0.9);
 }
 
 .tag-nintendo {
-  background-color: rgba(230, 0, 18, 1);
-  border: 1px solid rgba(230, 0, 18, 0);
-  color: #f0f0f0;
+  background: linear-gradient(135deg, rgba(230, 0, 18, 0.95), rgba(255, 77, 97, 0.82));
+  border: 1px solid rgba(230, 0, 18, 0.08);
+  color: #f7f8ff;
 }
 
 .tag-nintendo-off {
-  background-color: rgba(230, 0, 18, 0.2);
-  border: 1px solid rgba(230, 0, 18, 1);
-  color: #f0f0f0;
+  background: rgba(230, 0, 18, 0.14);
+  border: 1px solid rgba(230, 0, 18, 0.38);
+  color: rgba(244, 246, 255, 0.9);
 }
 
 .filter-tags {
@@ -171,6 +227,7 @@
   grid-template-columns: auto 1fr;
   column-gap: 0.25rem;
   width: 59rem;
+  align-items: stretch;
 }
 
 .wishlist-details {
@@ -184,11 +241,13 @@
   font-size: 1.2rem;
   padding-bottom: 0.25rem;
   font-weight: 700;
+  color: #f7f8ff;
 }
 
 .wishlist-tile .body {
   font-size: 0.8rem;
   padding-bottom: 0.25rem;
+  color: rgba(236, 239, 255, 0.82);
 }
 
 .wishlist-tile > img {
@@ -196,6 +255,8 @@
   height: 11rem;
   object-fit: cover;
   object-position: center;
+  filter: saturate(1.08) contrast(1.05) brightness(0.82);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .wishlist-tile .platforms {
@@ -209,7 +270,7 @@
 
 .back {
   font-weight: 600;
-  color: #f0f0f0;
+  color: #f7f8ff;
   margin-bottom: 2rem;
   user-select: none;
 }
@@ -230,4 +291,9 @@
   align-items: center;
   font-size: 2rem;
   user-select: none;
+  color: rgba(244, 246, 255, 0.8);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
