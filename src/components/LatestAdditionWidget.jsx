@@ -11,7 +11,12 @@ const LatestAdditionWidget = (props) => {
 
   return (
     <div className={`${css["widget-tile"]} ${css["w3"]} ${css["h2"]}`} style={backgroundImage}>
-      <div className={css["float-tag"]}>Latest Addition in Wishlist</div>
+      <div></div>
+      <div></div>
+      <div className={css["float-tag"]}>
+        <div className={css["label"]}>Latest Addition in Wishlist:</div>
+        <div className={css["title"]}>{props.name}</div>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const WishlistWidget = (props) => {
     <div className={css["widget"]}>
       <TotalGamesWidget total={props.data.length} onClick={props.handleManage} />
       <GenresWidget genres={props.genres} />
-      <LatestAdditionWidget imageUrl={props.latestAddition.background_image} />
+      <LatestAdditionWidget name={props.latestAddition.name} imageUrl={props.latestAddition.background_image} />
       <OPMonWidget />
     </div>
   );
