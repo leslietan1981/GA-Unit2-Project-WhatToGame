@@ -13,7 +13,6 @@ export const getParentObj = (childSlug) => {
 
 export const getTagClassName = (slug, isOn = false) => {
   if (slug === "all" || includedParentPlatforms.includes(slug)) {
-    console.log(`tag-${slug}${isOn ? "" : "-off"}`);
     return `tag-${slug}${isOn ? "" : "-off"}`;
   }
 };
