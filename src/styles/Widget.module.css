@@ -75,3 +75,14 @@
   margin-top: 0.5rem;
   font-size: 0.6rem;
 }
+
+.float-tag {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.5rem;
+  background-color: rgba(20, 20, 20, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-size: 0.8rem;
+  color: #f0f0f0;
+  padding: 0 0.8rem;
+}
