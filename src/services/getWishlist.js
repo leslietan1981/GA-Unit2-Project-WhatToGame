@@ -27,7 +27,7 @@ const useWishlist = () => {
       let latestAddition;
       for (const recordObj of responseData.records) {
         const game_json = JSON.parse(recordObj.fields.game_json);
-        const obj = { id: recordObj.fields.id, game_json: game_json, createdTime: recordObj.createdTime };
+        const obj = { id: recordObj.id, game_json: game_json, createdTime: recordObj.createdTime };
         wishlistData.push(obj);
 
         for (const genreObj of game_json.genres) {

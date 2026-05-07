@@ -1,5 +1,6 @@
 .section {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .section-header {
@@ -25,8 +26,6 @@
   overscroll-behavior-y: none;
   gap: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid black;
-  margin-bottom: 1rem;
 }
 
 .card {
@@ -161,16 +160,74 @@
   align-items: center;
 }
 
+.wishlist-listing {
+  display: grid;
+  justify-content: start;
+  gap: 1rem;
+}
+
 .wishlist-tile {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 0.25rem;
-  padding-bottom: 0.5rem;
+  width: 59rem;
+}
+
+.wishlist-details {
+  margin: 0.5rem 0.5rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+}
+
+.wishlist-tile .title {
+  font-size: 1.2rem;
+  padding-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.wishlist-tile .body {
+  font-size: 0.8rem;
+  padding-bottom: 0.25rem;
 }
 
 .wishlist-tile > img {
-  width: 200px;
-  height: 100px;
+  width: 23rem;
+  height: 11rem;
   object-fit: cover;
   object-position: center;
+}
+
+.wishlist-tile .platforms {
+  align-self: end;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.back {
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+.wishlist-listing .pair {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.trash {
+  justify-self: center;
+  align-self: center;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  user-select: none;
 }
