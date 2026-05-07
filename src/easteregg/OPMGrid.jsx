@@ -67,7 +67,7 @@ const OPMGrid = () => {
   }, []);
 
   return (
-    <div>
+    <div className={css["fit"]}>
       <div className={css["header"]}>
         <div className={css["title"]}>OP MONSTER</div>
         <div className={css["title"]}>SCORE: {score}</div>
