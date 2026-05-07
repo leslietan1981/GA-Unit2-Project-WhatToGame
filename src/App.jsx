@@ -8,8 +8,8 @@ import { getParentPlatformParameter } from "./utils/platformTagUtil";
 import { useAddGame } from "./services/addToWishlist";
 import { routerPaths } from "./utils/routerPathUtil";
 import ManageWishList from "./components/ManageWishList";
-import FourOFour from "../../SEB-62-HW/unit-2/6-react-router-dom-lab/leslie/src/components/FourOFour";
 import { useRemoveGame } from "./services/removeFromWishlist";
+import Four0Four from "./components/Four0Four";
 
 globalThis.mockRequests = false;
 
@@ -77,7 +77,7 @@ function App() {
               />
             }
           />
-          <Route path="*" element={<FourOFour />} />
+          <Route path="*" element={<Four0Four handleBackToIndex={() => navigateTo(routerPaths.index)} />} />
         </Routes>
       </div>
     </div>
