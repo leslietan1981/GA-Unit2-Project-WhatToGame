@@ -1,7 +1,7 @@
 .widget {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 11rem);
-  grid-template-rows: 11rem 11rem;
+  grid-auto-columns: 11rem;
+  grid-template-rows: repeat(2, 11rem);
   grid-auto-flow: column;
   gap: 1rem;
 }
@@ -62,10 +62,12 @@
 
 .w2 {
   width: 23rem;
+  grid-column: span 2;
 }
 
 .w3 {
   width: 35rem;
+  grid-column: span 3;
 }
 
 .h1 {
@@ -74,6 +76,7 @@
 
 .h2 {
   height: 23rem;
+  grid-row: span 2;
 }
 
 .widget-tile .emphasis {
@@ -92,6 +95,13 @@
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.widget-tile .header {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
 }
 
 .list {

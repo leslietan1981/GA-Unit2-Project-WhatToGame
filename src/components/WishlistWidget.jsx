@@ -3,6 +3,7 @@ import TotalGamesWidget from "./TotalGamesWidget";
 import css from "../styles/Widget.module.css";
 import GenresWidget from "./GenresWidget";
 import LatestAdditionWidget from "./LatestAdditionWidget";
+import OPMonWidget from "../easteregg/OPMonWidget";
 
 const WishlistWidget = (props) => {
   return (
@@ -10,6 +11,7 @@ const WishlistWidget = (props) => {
       <TotalGamesWidget total={props.data.length} onClick={props.handleManage} />
       <GenresWidget genres={props.genres} />
       <LatestAdditionWidget imageUrl={props.latestAddition.background_image} />
+      <OPMonWidget />
     </div>
   );
 };
