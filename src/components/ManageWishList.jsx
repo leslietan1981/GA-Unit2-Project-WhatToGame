@@ -2,7 +2,7 @@ import React, { use, useEffect } from "react";
 import css from "../styles/App.module.css";
 import WishlistCard from "./WishlistCard";
 
-const ManageWishList = (props) => {
+const ManageWishlist = (props) => {
   return (
     <div>
       <div className={css["back"]} onClick={props.handleBackToIndex}>{`◀︎ BACK`}</div>
@@ -14,10 +14,10 @@ const ManageWishList = (props) => {
           .toSorted((a, b) => new Date(b.createdTime) - new Date(a.createdTime))
           .map((gameObj, idx) => (
             <div key={idx} className={css["pair"]}>
-              <WishlistCard gameDetails={gameObj.game_json} createdTime={gameObj.createdTime} />
               <div className={`${css["card"]} ${css["trash"]}`} onClick={() => props.handleRemove(gameObj)}>
-                🗑️
+                -
               </div>
+              <WishlistCard gameDetails={gameObj.game_json} createdTime={gameObj.createdTime} />
             </div>
           ))}
       </div>
@@ -25,4 +25,4 @@ const ManageWishList = (props) => {
   );
 };
 
-export default ManageWishList;
+export default ManageWishlist;

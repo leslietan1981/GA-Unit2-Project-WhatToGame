@@ -7,7 +7,7 @@ import { useLatestGames } from "./services/getLatestGames";
 import { getParentPlatformParameter } from "./utils/platformTagUtil";
 import { useAddGame } from "./services/addToWishlist";
 import { routerPaths } from "./utils/routerPathUtil";
-import ManageWishList from "./components/ManageWishList";
+import ManageWishlist from "./components/ManageWishlist";
 import { useRemoveGame } from "./services/removeFromWishlist";
 import Four0Four from "./components/Four0Four";
 
@@ -70,7 +70,7 @@ function App() {
           <Route
             path={routerPaths.manageWishlist}
             element={
-              <ManageWishList
+              <ManageWishlist
                 data={wishlist.data}
                 handleBackToIndex={() => navigateTo(routerPaths.index)}
                 handleRemove={removeFromWishlist}

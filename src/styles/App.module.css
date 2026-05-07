@@ -250,6 +250,13 @@
   color: rgba(236, 239, 255, 0.82);
 }
 
+.wishlist-tile .body > div {
+  border-left: 2px solid rgba(145, 70, 255, 0.9);
+  margin-left: 0.2rem;
+  padding-left: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
 .wishlist-tile > img {
   width: 23rem;
   height: 11rem;
@@ -284,15 +291,15 @@
 .trash {
   justify-self: center;
   align-self: center;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   user-select: none;
   color: rgba(244, 246, 255, 0.8);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 0, 0, 0.274);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999rem;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
