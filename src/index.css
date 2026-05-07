@@ -23,11 +23,13 @@ body {
 
 .wrapper {
   background-image: url("assets/images/OPMonster_background.png");
+  background-attachment: fixed;
   background-size: 100% auto;
   background-repeat: no-repeat;
   background-position: center top;
   margin: 0 calc((100% - 85rem) / 2);
   justify-content: center;
+  height: 100vh;
 }
 
 .wrapper-row {
@@ -35,5 +37,7 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 85rem;
+  height: 100vh;
   padding: 1rem;
+  overflow-y: scroll;
 }
