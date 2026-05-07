@@ -7,7 +7,7 @@ import LatestAdditionWidget from "./LatestAdditionWidget";
 const WishlistWidget = (props) => {
   return (
     <div className={css["widget"]}>
-      <TotalGamesWidget total={props.data.length} />
+      <TotalGamesWidget total={props.data.length} onClick={props.handleManage} />
       <GenresWidget genres={props.genres} />
       <LatestAdditionWidget imageUrl={props.latestAddition.background_image} />
     </div>
