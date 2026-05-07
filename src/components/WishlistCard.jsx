@@ -4,7 +4,7 @@ import { getParentObj } from "../utils/platformTagUtil";
 import PlatformTag from "./PlatformTag";
 
 const WishlistCard = (props) => {
-  const { name, background_image, released, platforms } = props.gameDetails;
+  const { name, background_image, released, platforms, genres } = props.gameDetails;
   const tagIds = [];
 
   return (
@@ -15,6 +15,7 @@ const WishlistCard = (props) => {
         <div className={css["body"]}>
           <div>{`Added on: ${props.createdTime.slice(0, 10)}`}</div>
           <div>{`${new Date(released) > new Date() ? "Available date:" : "Released date:"} ${released}`}</div>
+          <div>{`Genres: ${genres.length > 0 ? genres.map((genreObj) => genreObj.name).join(", ") : "-"}`}</div>
         </div>
         <div className={css["platforms"]}>
           {platforms && platforms.length > 0
