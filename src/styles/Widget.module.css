@@ -14,8 +14,10 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 1rem;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.2rem;
   justify-content: center;
+  align-content: start;
   color: #f0f0f0;
 }
 
@@ -51,4 +53,25 @@
   color: #f0f0f0;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+.list {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, auto);
+  gap: 0.2rem;
+  align-content: start;
+  margin-top: 0.5rem;
+}
+
+.list-item {
+  align-self: center;
+  border-left: 2px solid #f0f0f0;
+  font-size: 0.6rem;
+  margin-left: 0.2rem;
+  padding-left: 0.5rem;
+}
+
+.list-more {
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
 }
