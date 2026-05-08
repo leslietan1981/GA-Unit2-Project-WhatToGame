@@ -9,7 +9,7 @@ const GameCard = (props) => {
 
   return (
     <div className={`${css["card"]} ${css["game-tile"]}`}>
-      <img src={background_image} onClick={() => props.handleAddToWishlist(props.gameDetails)} />
+      <img src={background_image} alt="game cover image" onClick={() => props.handleAddToWishlist(props.gameDetails)} />
       <div className={css["title"]}>{name}</div>
       <ul>
         <li

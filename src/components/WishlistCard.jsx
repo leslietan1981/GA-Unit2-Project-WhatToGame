@@ -9,7 +9,7 @@ const WishlistCard = (props) => {
 
   return (
     <div className={`${css["card"]} ${css["wishlist-tile"]}`}>
-      <img src={background_image} />
+      <img src={background_image} alt="game cover image" />
       <div className={css["wishlist-details"]}>
         <div className={css["title"]}>{name}</div>
         <div className={css["body"]}>
