@@ -64,6 +64,37 @@ And with that, the technologies I used were:
 - **CSS:** Re-skinable visual styles
 - **ReactJS:** User interface and logic
 
+## .env Keys
+
+- VITE_SERVER_RAWG
+- VITE_API_KEY_RAWG
+- VITE_SERVER_AIR
+- VITE_TOKEN_AIR
+
+## App Hierarchy
+
+```
+└─ App
+   ├─ WishlistWidget
+   │ ├─ TotalGamesWidget
+   │ ├─ GenresWidget
+   │ ├─ LatestAdditionWidget
+   │ └─ OPMonWidget
+   │    └─ OPMGrid
+   │       └─ OPMTile
+   │          ├─ OPMGem
+   │          ├─ OPMPlayer
+   │          └─ OPMGhost
+   ├─ LatestListing
+   │ ├─ TagFilter
+   │ └─ GameCard
+   │    └─ PlatformTag
+   ├─ ManageWishlist
+   │ └─ WishlistCard
+   │    └─ PlatformTag
+   └─ Four0Four
+```
+
 ## Next Steps
 
 Here are some features that are interesting to add:
